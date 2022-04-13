@@ -1,0 +1,23 @@
+<!-- 바닐라 자바스크립트 기본 구조 -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- 1. html 구조를 만든다. -->
+    <span>Totaal clicks: 0</span>
+    <button id="btn">Click me</button>
+  </body>
+  <script>
+    // 2. html을 가져온다.
+    let counter = 0;
+    const button = document.getElementById("btn");
+    const span = document.querySelector("span");
+
+    // 4. 이벤트를 적용한다.
+    function handleClick() {
+      counter = counter + 1;
+      span.innerText = `Total clicks: ${counter}`;
+    }
+    // 3. 이벤트를 만든다.
+    button.addEventListener("click", handleClick);
+  </script>
+</html>
