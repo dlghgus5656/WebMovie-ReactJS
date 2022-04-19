@@ -13,34 +13,41 @@
   <!-- 바벨을 사용하려면 type="text/babel"를 선언해주어야한다. -->
   <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = () => (
-      // 화살표 함수를 사용하지 않고 아래와 같은 방법으로도 가능
-      // function Title() {}
-      //   return()
-      <h3 id="title" onMouseEnter={() => console.log("클릭하세요")}>
-        여기는 타이틀 입니다.
-      </h3>
-    );
-    const Button = () => (
-      <button
-        style={{ backgroundColor: "tomato" }}
-        onClick={() => console.log("클릭완료")}
-      >
-        클릭해주세요
-      </button>
-    );
+    function App() {
+      //useState는 배열을 제공해준다.
+      // const [값, 값을 바꿔줄 함수] = React.useState(0);
+      // 위와 같이 useState를 사용하면 리렌더링을 해줄 필요가 없어진다.
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3>클릭 수: {counter}</h3>
+          <button onClick={onClick}>클릭해주세요</button>
+        </div>
+      );
+    }
+    // const Button = () => (
+    //   <button
+    //     style={{ backgroundColor: "tomato" }}
+    //     onClick={() => console.log("클릭완료")}
+    //   >
+    //     클릭해주세요
+    //   </button>
+    // );
     // 화살표 함수에서
     // 소괄호는 retrun 한다는걸 전제로하는 것이고,
     // 중괄호는 return을 안한다는걸 전제로 한다.
-    const Container = () => (
-      // !컴포넌트의 첫 글자는 반드시 대문자여야한다.
-      // 소문자일 경우 React와 JSX는 컴포넌트를 HTML 엘리먼트로 인식한다.
-      <div>
-        <Title />
-        <Button />
-        <button>그냥 버튼</button>
-      </div>
-    );
-    ReactDOM.render(<Container />, root);
+    // const Container = () => (
+    //   // !컴포넌트의 첫 글자는 반드시 대문자여야한다.
+    //   // 소문자일 경우 React와 JSX는 컴포넌트를 HTML 엘리먼트로 인식한다.
+    //   <div>
+    //     <Title />
+    //     <Button />
+    //     <button>그냥 버튼</button>
+    //   </div>
+    // );
+    ReactDOM.render(<App />, root);
   </script>
 </html>
