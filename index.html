@@ -17,14 +17,46 @@
       //useState는 배열을 제공해준다.
       // const [값, 값을 바꿔줄 함수] = React.useState(0);
       // 위와 같이 useState를 사용하면 리렌더링을 해줄 필요가 없어진다.
-      const [counter, setCounter] = React.useState(0);
-      const onClick = () => {
-        setCounter(counter + 1);
+      // const [counter, setCounter] = React.useState(0);
+      // const onClick = () => {
+      // 현재 state를 기반으로 계산하고 싶다면, 함수를 이용하자.
+      // 아래 둘 모두 같은 결과를 불러오지만 첫번째 코드처럼 함수를 주는게 더 안전하다.
+      // setCounter((current) => current + 1);
+      // setCounter(counter + 1);
+      // };
+      const [minutes, setMinutes] = React.useState();
+      const onChange = (event) => {
+        // console.log(event.target.value);
+        setMinutes(event.target.value);
       };
+      const reset = () => setMinutes(0);
       return (
         <div>
-          <h3>클릭 수: {counter}</h3>
-          <button onClick={onClick}>클릭해주세요</button>
+          <h1>변환기</h1>
+          <div>
+            <laber htmlfor="minutes">Minutes</laber>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+            />
+          </div>
+
+          <div>
+            <laber htmlfor="hours">Hours</laber>
+            <input
+              //Math.round로 반올림해서 출력
+              value={Math.round(minutes / 60)}
+              id="hours"
+              placeholder="Hours"
+              type="number"
+              // 값을 입력할 수 없게 막음
+              disabled
+            />
+          </div>
+          <button onClick={reset}> Reset</button>
         </div>
       );
     }
