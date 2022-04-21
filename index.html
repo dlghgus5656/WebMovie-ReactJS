@@ -24,23 +24,30 @@
       // setCounter((current) => current + 1);
       // setCounter(counter + 1);
       // };
-      const [minutes, setMinutes] = React.useState();
+      const [amount, setAmount] = React.useState(0);
+      const [flipped, setFlipped] = React.useState(false);
       const onChange = (event) => {
         // console.log(event.target.value);
-        setMinutes(event.target.value);
+        setAmount(event.target.value);
       };
-      const reset = () => setMinutes(0);
+      const reset = () => setAmount(0);
+      // !를 사용해 flipped 값과 반대되는 값으로 바꿔준다.
+      const onFlip = () => {
+        reset();
+        setFlipped((current) => !current);
+      };
       return (
         <div>
           <h1>변환기</h1>
           <div>
             <laber htmlfor="minutes">Minutes</laber>
             <input
-              value={minutes}
+              value={flipped ? amount * 60 : amount}
               id="minutes"
               placeholder="Minutes"
               type="number"
               onChange={onChange}
+              disabled={flipped === true}
             />
           </div>
 
@@ -48,15 +55,17 @@
             <laber htmlfor="hours">Hours</laber>
             <input
               //Math.round로 반올림해서 출력
-              value={Math.round(minutes / 60)}
+              value={flipped ? amount : Math.round(amount / 60)}
               id="hours"
               placeholder="Hours"
               type="number"
               // 값을 입력할 수 없게 막음
-              disabled
+              disabled={flipped === false}
+              onChange={onChange}
             />
           </div>
           <button onClick={reset}> Reset</button>
+          <button onClick={onFlip}> Flip</button>
         </div>
       );
     }
