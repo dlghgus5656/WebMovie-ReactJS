@@ -42,3 +42,19 @@ function App() {
 }
 
 export default App;
+
+// cleanup문
+
+// useEffect(() => {
+//     effect
+//     return () => {
+//         cleanup
+//     };
+// }, [input]);
+
+// ex)
+
+// useEffect(() => {
+//   console.log("hi :)");
+//   return () => console("bye :(");
+// }, []);
