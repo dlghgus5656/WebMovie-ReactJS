@@ -15,6 +15,11 @@ function App() {
   };
   console.log(toDos);
 
+  // const deleteBtn = (index) => {
+  //   const li = event.target.parentElement;
+  //   li.remove();
+  // };
+
   return (
     <div>
       <h1>My To Dos ({toDos.length})</h1>
@@ -30,12 +35,17 @@ function App() {
       <hr />
       <ul>
         {toDos.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            {item}
+            {/* <button onClick={() => deleteBtn(index)}>❌</button> */}
+          </li>
         ))}
       </ul>
     </div>
   );
 }
+
+export default App;
 
 // form은 submit 이벤트를 갖고 있다.
 // 그러므로 evernt.preventDefault() 함수를 이용하여 기본 동작을 막자.
@@ -76,4 +86,3 @@ function App() {
 // 즉,
 // {{item},{item},{item}...}
 // 배열을 만들어 각자 고유의 key를 가지게 함
-export default App;
