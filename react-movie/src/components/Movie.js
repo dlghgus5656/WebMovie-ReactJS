@@ -1,4 +1,5 @@
 import propTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // 무비 컴포넌트는 아래 prop들을 다 부모 컴포넌트로 부터 받아온다.
 function Movie({ coverImg, title, year, summary, genres }) {
@@ -6,8 +7,10 @@ function Movie({ coverImg, title, year, summary, genres }) {
     <div>
       {/* src에 alt 속성을 주지 않으면 react에서 코딩 컨벤션(코드 규칙)을 관리할 때 사용하는 eslint에서 제공하는 warning이 뜬다. */}
       <img src={coverImg} alt={title} />
+      {/* 기존 HTML의 a태그의 href는 페이지 이동 시 새로고침이 되었지만
+      react-router-dom의 Link는 새로고침 없이 페이지 이동을 가능하게 해준다. */}
       <h2>
-        {title} ({year})
+        <Link to="/movie">{title}</Link> ({year})
       </h2>
       <p>{summary}</p>
       <ul>{genres && genres.map((g) => <li key={g}>{g}</li>)}</ul>
