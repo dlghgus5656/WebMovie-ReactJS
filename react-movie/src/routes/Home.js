@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Movie from "./components/Movie";
+import Movie from "../components/Movie";
 
 function Home() {
   // state를 변경할 때 모든 code들은 항상 다시 실행된다, 원치 않아도.
