@@ -32,6 +32,7 @@ function Home() {
             <Movie
               // key는 react.js에서만 map 안에서 컴포넌트들을 render할 때 사용한다.
               key={movie.id}
+              id={movie.id}
               coverImg={movie.medium_cover_image}
               title={movie.title}
               year={movie.year}

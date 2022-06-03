@@ -21,7 +21,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movie" element={<Detail />} />
+        {/* 경로 /movie/:id 중에서 :를 쓰는게 중요하다 사용하지 않고 /movie/id 이렇게 넣어주면 id마다 다른 페이지가 아닌
+        /movie/id 즉 텍스트 id로만 이동한다. */}
+        {/* id라고 경로를 정해줌으로써 useParams 로 받는 변수의 이름은 id가 된다. */}
+        <Route path="/movie/:id" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );
