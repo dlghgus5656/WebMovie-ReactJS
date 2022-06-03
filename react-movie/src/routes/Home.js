@@ -14,6 +14,7 @@ function Home() {
     ).json();
     // 위 처럼 await을 김밥 처럼 두겹 사용하면 아래 코드를 작성 불필요함
     // const json = await response.json();
+    // console.log(json);
     setMovies(json.data.movies);
     setLoading(false);
   };
