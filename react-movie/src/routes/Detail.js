@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Movie from "../components/Movie";
+// import Movie from "../components/Movie";
 
 function Detail() {
   const [loading, setLoading] = useState(true);
-  const [movieid, setId] = useState([]);
+  const [movie, setMovie] = useState([]);
   // react-router-dom을 이용해 id값을 찾아 온다.
   const { id } = useParams();
 
-  const getMovie = async () => {
+  const getMovie = useCallback(async () => {
     const json =
       await // id값을 알고 있기 때문에 API로 부터 정보를 fetch 해올 수 있다.
       (
@@ -16,33 +16,32 @@ function Detail() {
       ).json();
     console.log(json);
 
-    setId(json.data.movie.id);
+    setMovie(json.data.movie);
     setLoading(false);
-  };
+  }, [id]);
 
   useEffect(() => {
-    getMovie();
-  }, []);
+    if (id !== "" && id.length > 1) {
+      getMovie();
+    }
+  }, [getMovie, id]); //  React Hook useEffect has missing dependencies: 'getMovie' and 'id'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  console.log(movie);
 
   return (
     <div>
-      <h1>Detail</h1>;
+      {/* <h1>Detail</h1> */}
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <div>
-          {movieid.map((movie) => (
-            <Movie
-              // key는 react.js에서만 map 안에서 컴포넌트들을 render할 때 사용한다.
-              key={movie.id}
-              id={movie.id}
-              coverImg={movie.medium_cover_image}
-              title={movie.title}
-              year={movie.year}
-              summary={movie.summary}
-              genres={movie.genres}
-            />
-          ))}
+          <img src={movie.large_cover_image} alt={movie.large_cover_image} />
+          <h2>
+            {movie.title} ({movie.year})
+          </h2>
+          <ul>
+            {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
+          </ul>
+          <p>{movie.description_full}</p>
         </div>
       )}
     </div>

@@ -9,7 +9,7 @@ function Home() {
   const getMovies = async () => {
     const json = await (
       await fetch(
-        "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
+        "https://yts.mx/api/v2/list_movies.json?minimum_rating=7.5&sort_by=year"
       )
     ).json();
     // 위 처럼 await을 김밥 처럼 두겹 사용하면 아래 코드를 작성 불필요함
