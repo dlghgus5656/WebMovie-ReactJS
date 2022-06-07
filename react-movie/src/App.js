@@ -18,7 +18,7 @@ import Detail from "./routes/Detail";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         {/* 경로 /movie/:id 중에서 :를 쓰는게 중요하다 사용하지 않고 /movie/id 이렇게 넣어주면 id마다 다른 페이지가 아닌
