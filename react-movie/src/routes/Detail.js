@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styles from "./Detail.module.css";
 // import Movie from "../components/Movie";
 
 function Detail() {
@@ -31,17 +32,25 @@ function Detail() {
     <div>
       {/* <h1>Detail</h1> */}
       {loading ? (
-        <h1>Loading...</h1>
+        <div className={styles.loader}>
+          <span>Loading...</span>
+        </div>
       ) : (
-        <div>
-          <img src={movie.large_cover_image} alt={movie.large_cover_image} />
-          <h2>
-            {movie.title} ({movie.year})
-          </h2>
-          <ul>
-            {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
-          </ul>
-          <p>{movie.description_full}</p>
+        <div className={styles.detail}>
+          <img
+            src={movie.large_cover_image}
+            alt={movie.large_cover_image}
+            className={styles.movie_img}
+          />
+          <div>
+            <h2 className={styles.movie_title}>
+              {movie.title} ({movie.year})
+            </h2>
+            <p>{movie.description_full}</p>
+            <ul className={styles.movie_genres}>
+              {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
+            </ul>
+          </div>
         </div>
       )}
     </div>

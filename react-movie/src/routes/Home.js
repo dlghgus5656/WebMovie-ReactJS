@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
+import styles from "./Home.module.css";
 
 function Home() {
   // state를 변경할 때 모든 code들은 항상 다시 실행된다, 원치 않아도.
@@ -24,11 +25,13 @@ function Home() {
   }, []);
   console.log(movies);
   return (
-    <div>
+    <div className={styles.container}>
       {loading ? (
-        <h1>Loading...</h1>
+        <div className={styles.loader}>
+          <span>Loading...</span>
+        </div>
       ) : (
-        <div>
+        <div className={styles.movies}>
           {movies.map((movie) => (
             <Movie
               // key는 react.js에서만 map 안에서 컴포넌트들을 render할 때 사용한다.
