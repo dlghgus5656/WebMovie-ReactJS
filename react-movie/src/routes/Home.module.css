@@ -12,8 +12,9 @@
   justify-content: center;
   align-items: center;
   font-size: 190%;
-  font-weight: 300%;
-  background: mistyrose;
+  font-weight: 600;
+  color: white;
+  background: #fe2e2e;
   border-radius: 50%;
   position: relative;
 }
@@ -38,7 +39,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: lavenderblush;
+  background: #fa5858;
   border-radius: 50%;
   z-index: -1;
 }
