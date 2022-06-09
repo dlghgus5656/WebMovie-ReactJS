@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
 // import Movie from "../components/Movie";
@@ -36,20 +37,32 @@ function Detail() {
           <span>Loading...</span>
         </div>
       ) : (
-        <div className={styles.detail}>
-          <img
-            src={movie.large_cover_image}
-            alt={movie.large_cover_image}
-            className={styles.movie_img}
-          />
-          <div>
-            <h2 className={styles.movie_title}>
-              {movie.title} ({movie.year})
-            </h2>
-            <p className={styles.movie_summary}>{movie.description_full}</p>
-            <ul className={styles.movie_genres}>
-              {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
-            </ul>
+        <div>
+          <div className={styles.detail}>
+            <img
+              src={movie.large_cover_image}
+              alt={movie.large_cover_image}
+              className={styles.movie_img}
+            />
+            <div>
+              <div className={styles.home_button}>
+                <button type="button" class="btn btn-danger btn-lg">
+                  <Link
+                    to={`/`}
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    Home
+                  </Link>
+                </button>
+              </div>
+              <h2 className={styles.movie_title}>
+                {movie.title} ({movie.year})
+              </h2>
+              <p className={styles.movie_summary}>{movie.description_full}</p>
+              <ul className={styles.movie_genres}>
+                {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
+              </ul>
+            </div>
           </div>
         </div>
       )}
