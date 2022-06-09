@@ -5,14 +5,14 @@
 }
 
 .loader {
-  width: 200px;
-  height: 200px;
+  width: 10%;
+  height: 6em;
   display: flex;
   margin-top: 15%;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
-  font-weight: 300;
+  font-size: 190%;
+  font-weight: 300%;
   background: mistyrose;
   border-radius: 50%;
   position: relative;
@@ -46,10 +46,10 @@
 .movies {
   display: grid;
   grid-template-columns: repeat(2, minmax(400px, 1fr));
-  grid-gap: 100px;
-  padding: 50px;
+  grid-gap: 7%;
+  padding: 3%;
   width: 80%;
-  padding-top: 70px;
+  padding-top: 4%;
 }
 
 @media screen and (max-width: 1090px) {

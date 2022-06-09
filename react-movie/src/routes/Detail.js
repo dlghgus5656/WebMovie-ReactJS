@@ -29,7 +29,7 @@ function Detail() {
   console.log(movie);
 
   return (
-    <div>
+    <div className={styles.container}>
       {/* <h1>Detail</h1> */}
       {loading ? (
         <div className={styles.loader}>
@@ -46,7 +46,7 @@ function Detail() {
             <h2 className={styles.movie_title}>
               {movie.title} ({movie.year})
             </h2>
-            <p>{movie.description_full}</p>
+            <p className={styles.movie_summary}>{movie.description_full}</p>
             <ul className={styles.movie_genres}>
               {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
             </ul>
