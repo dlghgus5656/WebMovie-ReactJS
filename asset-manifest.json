@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/WebMovie-ReactJS/static/css/main.f64cb5b7.css",
-    "main.js": "/WebMovie-ReactJS/static/js/main.cebfb253.js",
+    "main.css": "/WebMovie-ReactJS/static/css/main.75e9c522.css",
+    "main.js": "/WebMovie-ReactJS/static/js/main.afd640db.js",
     "index.html": "/WebMovie-ReactJS/index.html",
-    "main.f64cb5b7.css.map": "/WebMovie-ReactJS/static/css/main.f64cb5b7.css.map",
-    "main.cebfb253.js.map": "/WebMovie-ReactJS/static/js/main.cebfb253.js.map"
+    "main.75e9c522.css.map": "/WebMovie-ReactJS/static/css/main.75e9c522.css.map",
+    "main.afd640db.js.map": "/WebMovie-ReactJS/static/js/main.afd640db.js.map"
   },
   "entrypoints": [
-    "static/css/main.f64cb5b7.css",
-    "static/js/main.cebfb253.js"
+    "static/css/main.75e9c522.css",
+    "static/js/main.afd640db.js"
   ]
 }
