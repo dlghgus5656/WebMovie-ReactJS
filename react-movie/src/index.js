@@ -9,7 +9,7 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <h2 className={styles.content}>Hi, Movie</h2>
+    <h2 className={styles.content}>HoFLIX</h2>
     <App />
   </React.StrictMode>
 );
